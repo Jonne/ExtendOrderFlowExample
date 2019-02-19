@@ -1,0 +1,7 @@
+# Overlay to build Mercury images
+version: '2.4'
+
+services:
+ commerce:
+  build: 
+    context: ./Docker/commerce

@@ -1,0 +1,76 @@
+version: '2.4'
+
+services:
+ mssql:
+  image: avivasolutionsnl.azurecr.io/sitecore-xc-mssql:9.0.3-ltsc2019
+  isolation: process
+  mem_limit: 2048m
+  cpu_count: 4
+  networks:
+    - orderflow  
+  volumes:
+    - .\databases:C:\databases
+
+ solr:
+  image: avivasolutionsnl.azurecr.io/sitecore-xc-solr:9.0.3-ltsc2019
+  isolation: process
+  mem_limit: 4096m
+  cpu_count: 4
+  networks:
+    - orderflow  
+  volumes:
+    - .\cores:C:\Data
+    
+ xconnect:
+  image: avivasolutionsnl.azurecr.io/sitecore-xc-xconnect:9.0.3-ltsc2019
+  isolation: process
+  mem_limit: 2048m
+  cpu_count: 4
+  networks:
+    - orderflow  
+  volumes:
+    - .\logs\xconnect:C:\inetpub\wwwroot\xconnect\App_data\Logs
+  depends_on:
+    - mssql
+    - solr
+
+ sitecore:
+  image: avivasolutionsnl.azurecr.io/sitecore-xc-sitecore:9.0.3-ltsc2019
+  isolation: process
+  mem_limit: 8192m
+  cpu_count: 6
+  networks:
+    - orderflow  
+  volumes:
+    - .\logs\sitecore:c:\inetpub\wwwroot\sitecore\App_Data\logs
+    - .\build\website:C:\Workspace
+    - .:c:\vagrant
+  depends_on:
+    - xconnect
+    - mssql
+    - solr
+
+ commerce:
+  image: extendorderflowdemo_commerce
+  isolation: process
+  mem_limit: 4096m
+  cpu_count: 6
+  networks:
+    - orderflow  
+  volumes:
+    - .\logs\commerce\CommerceAuthoring_Sc9:C:\inetpub\wwwroot\CommerceAuthoring_Sc9\wwwroot\logs
+    - .\logs\commerce\CommerceMinions_Sc9:C:\inetpub\wwwroot\CommerceMinions_Sc9\wwwroot\logs
+    - .\logs\commerce\CommerceOps_Sc9:C:\inetpub\wwwroot\CommerceOps_Sc9\wwwroot\logs
+    - .\logs\commerce\CommerceShops_Sc9:C:\inetpub\wwwroot\CommerceShops_Sc9\wwwroot\logs
+    - .\logs\commerce\SitecoreIdentityServer:C:\inetpub\wwwroot\SitecoreIdentityServer\wwwroot\logs
+    - .\build\commerce:C:\Workspace
+  depends_on:
+    - xconnect
+    - mssql
+    - solr
+    - sitecore
+  
+networks:
+  orderflow:
+    external:
+      name: nat
