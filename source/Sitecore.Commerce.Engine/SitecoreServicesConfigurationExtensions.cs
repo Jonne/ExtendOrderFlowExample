@@ -42,14 +42,14 @@ namespace Sitecore.Commerce.Engine
                     .Add<CalculateCartLinesSubTotalsBlock>()
                     .Add<CalculateCartLinesFulfillmentBlock>()
                     .Add<CalculateCartLinesPromotionsBlock>()
-                    //.Add<CalculateCartLinesTaxBlock>()
+                    .Add<CalculateCartLinesTaxBlock>()
                     .Add<CalculateCartLinesTotalsBlock>())
 
                .ConfigurePipeline<ICalculateCartPipeline>(builder => builder
                     .Add<CalculateCartSubTotalsBlock>()
                     .Add<CalculateCartFulfillmentBlock>()
                     .Add<CalculateCartPromotionsBlock>()
-                    //.Add<CalculateCartTaxBlock>()
+                    .Add<CalculateCartTaxBlock>()
                     .Add<CalculateCartTotalsBlock>()
                     .Add<CalculateCartPaymentsBlock>()
                     .Add<WriteCartTotalsToContextBlock>())

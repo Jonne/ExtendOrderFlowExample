@@ -51,6 +51,11 @@
             },
             {
               "$type": "Sitecore.Commerce.Core.KeyValueString, Sitecore.Commerce.Core",
+              "Key": "WaitingForPaymentOrders",
+              "Value": "hourglass"
+            },
+            {
+              "$type": "Sitecore.Commerce.Core.KeyValueString, Sitecore.Commerce.Core",
               "Key": "PendingOrders2",
               "Value": "anchor"
             },
@@ -79,7 +84,7 @@
               "Key": "ProblemOrders",
               "Value": "sign_warning"
             }
-        ]},
+          ]},
         "CustomerOrders": "Orders-ByCustomer-{0}",
         "Orders": "Orders",
         "PendingOrders": "PendingOrders",

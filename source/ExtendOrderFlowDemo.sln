@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.Sample.Habitat", "Pl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sitecore.Commerce.ServiceProxy", "Sitecore.Commerce.ServiceProxy\Sitecore.Commerce.ServiceProxy.csproj", "{907D1BDE-2097-4FF8-9813-87EDDEFA092B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.ExtendOrderFlow", "Plugin.ExtendOrderFlow\Plugin.ExtendOrderFlow.csproj", "{ABD70D15-E6C2-4D6A-849D-DFE6047A1434}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{907D1BDE-2097-4FF8-9813-87EDDEFA092B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{907D1BDE-2097-4FF8-9813-87EDDEFA092B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{907D1BDE-2097-4FF8-9813-87EDDEFA092B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD70D15-E6C2-4D6A-849D-DFE6047A1434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD70D15-E6C2-4D6A-849D-DFE6047A1434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD70D15-E6C2-4D6A-849D-DFE6047A1434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD70D15-E6C2-4D6A-849D-DFE6047A1434}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

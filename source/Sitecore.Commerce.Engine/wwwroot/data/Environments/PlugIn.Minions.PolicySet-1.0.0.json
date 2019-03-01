@@ -181,6 +181,20 @@
       {
         "$type": "Sitecore.Commerce.Core.MinionPolicy, Sitecore.Commerce.Core",
         "WakeupInterval": "00:05:00",
+        "ListToWatch": "WaitingForPaymentOrders",
+        "FullyQualifiedName": "Plugin.ExtendOrderFlow.Minions.WaitingForPaymentOrdersMinion, Plugin.ExtendOrderFlow",
+        "ItemsPerBatch": 10,
+        "SleepBetweenBatches": 500,
+        "Entities": {
+          "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "Sitecore.Commerce.Plugin.Orders.Order, Sitecore.Commerce.Plugin.Orders"
+          ]
+        }
+      },
+      {
+        "$type": "Sitecore.Commerce.Core.MinionPolicy, Sitecore.Commerce.Core",
+        "WakeupInterval": "00:05:00",
         "ListToWatch": "SettleSalesActivities",
         "FullyQualifiedName": "Sitecore.Commerce.Plugin.Orders.SettleSalesActivitiesMinion, Sitecore.Commerce.Plugin.Orders",
         "ItemsPerBatch": 10,
